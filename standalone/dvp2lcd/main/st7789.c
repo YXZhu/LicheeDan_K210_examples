@@ -64,7 +64,7 @@ void tft_hard_init(void)
 	gpiohs->output_en.u32[0] |= 0x00000004;
 
 	sysctl_reset(SPI_SYSCTL(RESET));
-	sysctl_clock_set_threshold(SPI_SYSCTL(THRESHOLD), 5);		//pll0/2
+	sysctl_clock_set_threshold(SPI_SYSCTL(THRESHOLD), 0);		//pll0/2
 	sysctl_clock_enable(SPI_SYSCTL(CLOCK));
 
 	fpioa_set_function(36, SPI_SS);
