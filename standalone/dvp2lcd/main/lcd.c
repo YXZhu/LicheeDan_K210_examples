@@ -422,7 +422,7 @@ void lcd_draw_rectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint
 
 void lcd_draw_picture(uint16_t x1, uint16_t y1, uint16_t width, uint16_t height, uint32_t *ptr)
 {
-#if 0
+#if 1
 	LCD_Set_Window(x1, y1, x1 + width, y1 + height);
     LCD_SetCursor(0x00,0x0000);	//设置光标位置
 	LCD_WriteRAM_Prepare();     //开始写入GRAM

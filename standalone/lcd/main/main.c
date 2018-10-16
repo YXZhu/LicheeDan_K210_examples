@@ -21,7 +21,11 @@ int main(void)
     	sysctl_pll_set_freq(SYSCTL_CLOCK_PLL0,400000000);
    	 	uarths_init();
    	 	printf("pll0 freq:%d\r\n",sysctl_clock_get_freq(SYSCTL_CLOCK_PLL0));
-
+		//需要重新配置DMA,LCD才能使用DMA刷屏
+		dmac->reset = 0x01;
+		while (dmac->reset)
+			;
+		dmac->cfg = 0x03;
 		printf("lcd test\n");
 		lcd_init();
 		lcd_clear(BLUE);

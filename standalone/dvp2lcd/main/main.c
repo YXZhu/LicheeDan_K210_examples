@@ -53,6 +53,11 @@ int main(void)
 		sysctl->misc.spi_dvp_data_enable = 1;
 
 		plic_init();
+		//需要重新配置DMA,LCD才能使用DMA刷屏
+		dmac->reset = 0x01;
+		while (dmac->reset)
+			;
+		dmac->cfg = 0x03;
 		// LCD init
 		printf("LCD init\r\n");
 		lcd_init();
